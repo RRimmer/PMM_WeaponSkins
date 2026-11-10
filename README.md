@@ -6,7 +6,16 @@
 
 Panorama inventory menu for **WeaponSkins by Star** on CS2, by **Rimmer**, in the style of [PanoramaMenuManager](https://github.com/RRimmer/PanoramaMenuManagerCS2) plugins.
 
-Current version: **0.1.1**. Needs CounterStrikeSharp 1.0.376+ (.NET 10) and **WeaponSkins by Star with `WeaponSkinsApi`** (the author's version with the PMM changes).
+Current version: **0.1.1**.
+
+## Requirements — must be installed
+
+- **WeaponSkins core — [Staaar0/WeaponSkins](https://github.com/Staaar0/WeaponSkins) 1.2.2 or newer.** Mandatory: the author's build with `WeaponSkinsApi` (the PMM changes).
+- **Panorama menu core — [RRimmer/PanoramaMenuManagerCS2](https://github.com/RRimmer/PanoramaMenuManagerCS2) 1.3.01.**
+- CounterStrikeSharp **1.0.376+** (.NET 10).
+- Panorama addon: copy `Content-addonmanager/panorama` and rebuild it in Workshop Tools, **or** use the ready Steam Workshop addon — for those who just want to add it to MultiAddonManager: [steamcommunity.com/sharedfiles/filedetails/?id=3823363089](https://steamcommunity.com/sharedfiles/filedetails/?id=3823363089)
+
+## Features
 
 - One screen: agent, gloves, knife, Zeus, music kit, pin and all weapons by category. Click the second agent to switch team.
 - Skin settings: team (CT / T / both), wear with FN–BS presets, pattern, StatTrak, name tag.
@@ -77,7 +86,16 @@ The plugin talks to WeaponSkins through reflection, so WeaponSkins is not needed
 
 Панорамное меню инвентаря для **WeaponSkins by Star** в CS2 от **Rimmer**, в стиле плагинов [PanoramaMenuManager](https://github.com/RRimmer/PanoramaMenuManagerCS2).
 
-Текущая версия: **0.1.1**. Нужен CounterStrikeSharp 1.0.376+ (.NET 10) и **WeaponSkins by Star с `WeaponSkinsApi`** (версия автора с изменениями для PMM).
+Текущая версия: **0.1.1**.
+
+## Что нужно установить — обязательно
+
+- **Ядро WeaponSkins — [Staaar0/WeaponSkins](https://github.com/Staaar0/WeaponSkins) версии 1.2.2 и выше.** Обязательно: версия автора с `WeaponSkinsApi` (изменения для PMM).
+- **Ядро меню — [RRimmer/PanoramaMenuManagerCS2](https://github.com/RRimmer/PanoramaMenuManagerCS2) 1.3.01.**
+- CounterStrikeSharp **1.0.376+** (.NET 10).
+- Аддон панорамы: скопируйте `Content-addonmanager/panorama` и пересоберите его в Workshop Tools, **или** возьмите готовый аддон из мастерской Steam — для тех, кто хочет просто прописать его в MultiAddonManager: [steamcommunity.com/sharedfiles/filedetails/?id=3823363089](https://steamcommunity.com/sharedfiles/filedetails/?id=3823363089)
+
+## Возможности
 
 - Один экран: агент, перчатки, нож, Zeus, музыка, медаль и всё оружие по категориям. Смена стороны — клик по второму агенту.
 - Настройка скина: сторона (КТ / Т / обе), износ с кнопками FN–BS, паттерн, StatTrak, именной тег.
