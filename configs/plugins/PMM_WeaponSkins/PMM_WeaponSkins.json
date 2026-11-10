@@ -1,0 +1,179 @@
+// PMM_WeaponSkins - панорамное меню инвентаря для WeaponSkins by Star.
+// Файл: game/csgo/addons/counterstrikesharp/configs/plugins/PMM_WeaponSkins/PMM_WeaponSkins.json
+// Комментарии // и /* */ разрешены (CounterStrikeSharp их пропускает). Запятая после последнего значения - нельзя.
+// После правки: перезапустите карту или выполните css_plugins reload PMM_WeaponSkins.
+{
+  // Язык меню: "ru", "en", "tr" (турецкий) или код своего языка, для которого есть файл lang/<код>.json.
+  // Тексты меню - в plugins/PMM_WeaponSkins/lang/ru.json, en.json, tr.json (можно править; новый язык - новый файл).
+  // Названия скинов, наклеек, агентов берутся из WeaponSkins (его настройка api.language), а не отсюда.
+  "Language": "ru",
+
+  // Как листать длинные списки скинов и наклеек:
+  //   "scroll" - колесом мыши (по умолчанию);
+  //   "pages"  - страницами 1, 2, 3 с кнопками "<" и ">".
+  "ListMode": "scroll",
+
+  // Как вводить текст и числа (именной тег, паттерн, StatTrak, точные значения наклеек):
+  //   "both"     - экранная клавиатура + кнопка "Написать в чате" (по умолчанию);
+  //   "keyboard" - только экранная клавиатура;
+  //   "chat"     - только чат: игрок пишет значение в чат, сообщение не видно остальным.
+  "InputMode": "both",
+
+  // Дополнительные команды открытия меню, без "!" и "css_". Пример: ["inv", "skin"] -> !inv, !skin.
+  // Команды самого WeaponSkins (!ws, !skins, !knife, !gloves, !agents, !music, !pin, !stickers) уже открывают это меню.
+  // Меню включено, только если в конфиге WeaponSkins стоит "Menu_Style": 3 (RRimmer-PanoramaMenu). При 1 или 2
+  // WeaponSkins открывает своё меню, а эта панорама не открывается (в том числе по командам ниже).
+  "Commands": [],
+
+  // Задержка (секунды) перед показом меню после команды. 0 - 2.
+  "OpenDelay": 0.1,
+
+  // Задержка (секунды) перед включением курсора мыши в меню. 0 - 2.
+  // Если меню иногда открывается без курсора - увеличьте до 0.3.
+  "InputDelay": 0.15,
+
+  // Сколько секунд ждать ответ в чате при вводе через чат. 5 - 300.
+  "ChatTimeout": 30,
+
+  // Подробный лог [PMM-WS] в консоль сервера (клики, сохранения, ошибки API). Для поиска проблем.
+  "Debug": false,
+
+  // Настройки игроков из этого меню (масштаб, сортировка наклеек и брелков) хранятся в MySQL - общие для всех серверов
+  // на этой базе. Скины хранит сам WeaponSkins. Таблица pmm_ws_players создаётся сама.
+  // true (по умолчанию) - та же база, что у WeaponSkins (подключение берётся из configs/plugins/WeaponSkins/WeaponSkins.json).
+  // false - своя база из блока "Database" ниже.
+  "UseWeaponSkinsDatabase": true,
+
+  // Своя база MySQL (только если UseWeaponSkinsDatabase = false). "Table" - имя таблицы, работает в обоих случаях.
+  "Database": {
+    "Host": "",
+    "Port": 3306,
+    "User": "",
+    "Password": "",
+    "Name": "",
+    "SslMode": "Preferred",
+    "Table": "pmm_ws_players"
+  },
+
+  // Перекрашивать подобранное оружие в свой скин (true / false, по умолчанию false).
+  // WeaponSkins красит оружие один раз, когда его покупают, поэтому подобранное с земли или у другого игрока остаётся
+  // со скином прежнего хозяина. С true на нём сразу появится ваш скин (наклейки, брелок, StatTrak), а если своего скина
+  // на это оружие нет - оно станет без скина. Ножи не трогаются. Нужен WeaponSkins с WeaponSkinsApi.ApplyToWeapon.
+  "RepaintPickedUp": false,
+
+  // Перекрашивать в свой скин ТОЛЬКО подобранное оружие без скина (обычное, которое валялось на карте или у игрока без скина).
+  // Оружие со скином другого игрока остаётся как есть. Работает отдельно от RepaintPickedUp (если включены оба - перекрашивается всё).
+  "RepaintPickedUpDefault": false,
+
+  // Какие разделы видны в меню (true - виден, false - скрыт). Скрытый раздел пропадает с главной, из списка слева
+  // и из команд (!knife, !gloves... открывают главную). Уже надетые предметы игрока не снимаются.
+  "Sections": {
+    "Agents": true,
+    "Gloves": true,
+    "Knife": true,
+    "Zeus": true,
+    "Music": true,
+    "Pins": true,
+    "Pistols": true,
+    "SMGs": true,
+    "Shotguns": true,
+    "Rifles": true,
+    "Snipers": true,
+    "MachineGuns": true
+  },
+
+  // Кто может открыть раздел. Пустой список [] - все. Иначе нужно хотя бы одно из условий:
+  //   "vip"          - любой VIP (VIPCore 2.x или VIPCore by dexter, какой стоит на сервере);
+  //   "vip:GROUP"    - VIP определённой группы, например "vip:Premium";
+  //   "@css/generic" - флаг администратора (CounterStrikeSharp / CS2-SimpleAdmin);
+  //   "#css/admin"   - группа администраторов.
+  // Закрытый раздел виден, но с замком, и не открывается. Пример: "Knife": ["vip", "@css/generic"].
+  "Access": {
+    "Agents": [],
+    "Gloves": [],
+    "Knife": [],
+    "Zeus": [],
+    "Music": [],
+    "Pins": [],
+    "Pistols": [],
+    "SMGs": [],
+    "Shotguns": [],
+    "Rifles": [],
+    "Snipers": [],
+    "MachineGuns": []
+  },
+
+  // Кто может пользоваться настройками скина. Правила те же, что в "Access": [] - все, "vip", "vip:GROUP", "@css/flag", "#css/group".
+  // Недоступная настройка не скрывается: она серая, с замком, и при клике пишет, что недоступна. Скин сохраняется
+  // со значением по умолчанию: без StatTrak, без именного тега, минимальный износ скина, паттерн 0, без наклеек / брелка.
+  // Пример: "StatTrak": ["vip", "@css/generic"], "Charms": ["vip:VIPGold"].
+  "Features": {
+    "StatTrak": [],
+    "NameTag": [],
+    "Stickers": [],
+    "Charms": [],
+    "Wear": [],
+    "Pattern": []
+  },
+
+  // Сколько слотов наклеек (0 - 5) получает игрок. Ключ - правило ("*" - все, "vip", "vip:GROUP", "@css/flag", "#css/group"),
+  // значение - число слотов. Если подходит несколько правил - берётся наибольшее. Пустой блок {} - всем 5.
+  // Остальные слоты видны, но закрыты замком. Пример: { "*": 1, "vip:VIPBronze": 2, "vip:VIPGold": 5, "@css/root": 5 }.
+  // Наклейки вообще (любое число слотов) включаются настройкой "Features" -> "Stickers".
+  "StickerSlots": {},
+
+  // Какие оружия, ножи и перчатки скрыть внутри разделов. Пример: ["weapon_negev", "weapon_knife_kukri", "sporty_gloves"].
+  // Пистолеты: weapon_glock, weapon_usp_silencer, weapon_hkp2000, weapon_p250, weapon_elite, weapon_fiveseven,
+  //   weapon_tec9, weapon_cz75a, weapon_deagle, weapon_revolver
+  // ПП: weapon_mac10, weapon_mp9, weapon_mp7, weapon_mp5sd, weapon_ump45, weapon_p90, weapon_bizon
+  // Дробовики: weapon_nova, weapon_xm1014, weapon_sawedoff, weapon_mag7
+  // Винтовки: weapon_galilar, weapon_famas, weapon_ak47, weapon_m4a1 (M4A4), weapon_m4a1_silencer, weapon_sg556, weapon_aug
+  // Снайперские: weapon_ssg08, weapon_awp, weapon_g3sg1, weapon_scar20
+  // Пулемёты: weapon_m249, weapon_negev
+  // Ножи: weapon_bayonet, weapon_knife_css, weapon_knife_flip, weapon_knife_gut, weapon_knife_karambit,
+  //   weapon_knife_m9_bayonet, weapon_knife_tactical, weapon_knife_falchion, weapon_knife_survival_bowie,
+  //   weapon_knife_butterfly, weapon_knife_push, weapon_knife_cord, weapon_knife_canis, weapon_knife_ursus,
+  //   weapon_knife_gypsy_jackknife, weapon_knife_outdoor, weapon_knife_stiletto, weapon_knife_widowmaker,
+  //   weapon_knife_skeleton, weapon_knife_kukri
+  // Перчатки: studded_brokenfang_gloves, studded_bloodhound_gloves, sporty_gloves, slick_gloves, leather_handwraps,
+  //   motorcycle_gloves, specialist_gloves, studded_hydra_gloves
+  // Можно и номером предмета (def index), например "28".
+  "HiddenWeapons": [],
+
+  // Цвет меню и свечение вокруг него, отдельно для каждой стороны.
+  //   "Color" - цвет меню: выделение, кнопки, бейдж "Надето", рамки выбранного, клавиатура и оттенок фона;
+  //   "Glow"  - цвет свечения по краям меню.
+  // Значение - название из списка ниже или любой цвет "#rrggbb": он заменится на ближайший из списка
+  // (сервер не может передать клиенту произвольный цвет, поэтому все цвета заранее есть в аддоне).
+  // "GlowSize" - сила свечения: 0 - выключено, 1 - слабое, 2 - среднее, 3 - сильное.
+  // Все цвета (название, HEX, описание):
+  //   white      #ffffff  белый                               silver     #c8d0da  серебристый
+  //   gray       #8a96a3  серый                               ice        #d6ecff  ледяной
+  //   sky        #a9d0ff  небесный (КТ по умолчанию)          lightblue  #7cc4ff  светло-синий
+  //   blue       #4aa8ff  синий (свечение КТ по умолчанию)    royal      #2f6bff  королевский синий
+  //   navy       #2340b8  тёмно-синий                         cyan       #3fe0ff  голубой
+  //   teal       #20c9b0  бирюзовый                           turquoise  #5ff2d6  светло-бирюзовый
+  //   mint       #8cf5b0  мятный                              green      #3ddc6e  зелёный
+  //   lime       #b6f03c  лайм                                olive      #9aa83a  оливковый
+  //   lemon      #fff06a  лимонный                            gold       #ecc75c  золотой (Т по умолчанию)
+  //   amber      #ffb02e  янтарный (свечение Т по умолчанию)  orange     #ff8a2b  оранжевый
+  //   copper     #d9773a  медный                              coral      #ff7a6b  коралловый
+  //   red        #ff3b3b  красный                             crimson    #c8102e  малиновый
+  //   pink       #ff7ac8  розовый                             hotpink    #ff3fa4  ярко-розовый
+  //   magenta    #e040fb  пурпурный                           violet     #b07cff  фиалковый
+  //   purple     #8a4dff  фиолетовый                          lavender   #cbb7ff  лавандовый
+  //   peach      #ffc7a3  персиковый                          brown      #8d5a3b  коричневый
+  "Theme": {
+    "CT": { "Color": "sky", "Glow": "blue" },
+    "T": { "Color": "gold", "Glow": "amber" },
+    "GlowSize": 2
+  },
+
+  // Масштаб меню по умолчанию, %: 100, 90, 80, 75, 70 или 60.
+  // Меню нарисовано под экран 16:9. Для 16:10 подходит 90, для 4:3 - 75, для 5:4 - 70.
+  // Каждый игрок может выбрать свой: "Масштаб - +" вверху меню или команда !wsscale 75 (запоминается в MySQL, см. "UseWeaponSkinsDatabase").
+  "Scale": 100,
+
+  // Версия формата конфига. Не меняйте.
+  "ConfigVersion": 1
+}

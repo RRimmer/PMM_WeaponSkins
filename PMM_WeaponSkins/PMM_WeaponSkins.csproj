@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AssemblyName>PMM_WeaponSkins</AssemblyName>
+        <RootNamespace>PMM_WeaponSkins</RootNamespace>
+        <Product>PanoramaMenuManager_WeaponSkins</Product>
+        <Version>0.1.0</Version>
+        <GenerateDependencyFile>false</GenerateDependencyFile>
+        <!-- MySqlConnector.dll must sit next to the plugin -->
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="CounterStrikeSharp.API" Version="1.0.376">
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </PackageReference>
+        <!-- player settings in MySQL; the same version as WeaponSkins uses -->
+        <PackageReference Include="MySqlConnector" Version="2.4.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="pmm_ws_items.json" CopyToOutputDirectory="PreserveNewest"/>
+        <!-- translations: plugins/PMM_WeaponSkins/lang/ru.json, en.json, tr.json -->
+        <None Update="lang\*.json" CopyToOutputDirectory="PreserveNewest"/>
+    </ItemGroup>
+
+</Project>
