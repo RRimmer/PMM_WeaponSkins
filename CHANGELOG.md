@@ -1,5 +1,18 @@
 # PMM_WeaponSkins — изменения
 
+## 0.1.2
+- Картинки и редкость новых предметов из обновления CS2: 8 наборов музыки (ALLEYCVT & LEVEL UP, Arcando & Pirapus,
+  DJ DIESEL & Hairitage и др.), 773 наклейки PGL Singapore 2026, 10 медалей / монет Singapore 2026, 120 новых скинов.
+  Раньше они показывались с пустой картинкой-заглушкой.
+- Картинки и редкость 7 наборов музыки, которые бывают только StatTrak (Beartooth - Aggressive, Blitz Kids -
+  The Good Youth, Hundredth - FREE, Neck Deep - Life's Not Out To Get You, Roam - Backbone, Skog - III-Arena,
+  Twin Atlantic - GLA). Раньше у них не было ни картинки, ни редкости.
+- Данные для картинок теперь берутся из CSGO-API (https://github.com/ByMykel/CSGO-API, автообновляемый форк автора
+  WeaponSkins - https://github.com/Staaar0/CSGO-API). После следующего обновления CS2 достаточно перегенерировать
+  картинки (`tools/gen_art.py`) и пересобрать аддон - править код не нужно.
+- Сборка под CounterStrikeSharp 1.0.380, проверено с WeaponSkins by Star 1.2.2.
+- Workshop-аддон нужно пересобрать и обновить (изменились `pmm_ws_art.css` и `pmm_ws_stickers.css`).
+
 ## 0.1.1
 - Доступ к настройкам скина (`Features`): StatTrak, именной тег, наклейки, брелки, износ, паттерн - для всех,
   VIP (группы) или администраторов. Недоступная настройка видна серой с замком; скин сохраняется со значением

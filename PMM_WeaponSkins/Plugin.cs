@@ -75,7 +75,7 @@ public partial class Plugin : BasePlugin, IPluginConfig<PluginConfig>
 	private const long ClickGapMs = 70;
 
 	public override string ModuleName => "PMM_WeaponSkins";
-	public override string ModuleVersion => "0.1.1";
+	public override string ModuleVersion => "0.1.2";
 	public override string ModuleAuthor => "RRimmer";
 	public override string ModuleDescription => "Panorama inventory menu for WeaponSkins by Star";
 

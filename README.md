@@ -8,13 +8,13 @@
 
 Panorama inventory menu for **WeaponSkins by Star** on CS2, by **Rimmer**, in the style of [PanoramaMenuManager](https://github.com/RRimmer/PanoramaMenuManagerCS2) plugins.
 
-Current version: **0.1.1**.
+Current version: **0.1.2**.
 
 ## Requirements — must be installed
 
 - **WeaponSkins core — [Staaar0/WeaponSkins](https://github.com/Staaar0/WeaponSkins) 1.2.2 or newer.** Mandatory: the author's build with `WeaponSkinsApi` (the PMM changes).
 - **Panorama menu core — [RRimmer/PanoramaMenuManagerCS2](https://github.com/RRimmer/PanoramaMenuManagerCS2) 1.3.01.**
-- CounterStrikeSharp **1.0.376+** (.NET 10).
+- CounterStrikeSharp **1.0.380+** (.NET 10).
 - Panorama addon: copy `Content-addonmanager/panorama` and rebuild it in Workshop Tools, **or** use the ready Steam Workshop addon — for those who just want to add it to MultiAddonManager: [steamcommunity.com/sharedfiles/filedetails/?id=3823363089](https://steamcommunity.com/sharedfiles/filedetails/?id=3823363089)
 
 ## Features
@@ -39,6 +39,13 @@ Current version: **0.1.1**.
 | `tools` | `gen_layout.py` (layout, stylesheet, `Layout.g.cs`), `gen_art.py` (pictures, rarity), `gen_stickergeo.py` (sticker geometry from the models), model readers |
 | `configs` | Example config with a comment on every key |
 | `images` / `icon` | README banner and the plugin icon |
+
+## New items after a CS2 update
+
+Item pictures are the CS2 client's own files (`s2r://panorama/images/econ/...`); the addon does not carry them. The item list and rarity come from [CSGO-API](https://github.com/ByMykel/CSGO-API) (auto-updated fork: [Staaar0/CSGO-API](https://github.com/Staaar0/CSGO-API)). When new stickers, music kits or skins appear in the game:
+
+1. `python tools/gen_art.py https://raw.githubusercontent.com/Staaar0/CSGO-API/main/public/api/en PMM_WeaponSkins` (or a path to a local CSGO-API copy);
+2. rebuild the plugin (`pmm_ws_items.json`) and the Workshop addon (`pmm_ws_art.css`, `pmm_ws_stickers.css`).
 
 ## Install from a Release
 
@@ -88,13 +95,13 @@ The plugin talks to WeaponSkins through reflection, so WeaponSkins is not needed
 
 Панорамное меню инвентаря для **WeaponSkins by Star** в CS2 от **Rimmer**, в стиле плагинов [PanoramaMenuManager](https://github.com/RRimmer/PanoramaMenuManagerCS2).
 
-Текущая версия: **0.1.1**.
+Текущая версия: **0.1.2**.
 
 ## Что нужно установить — обязательно
 
 - **Ядро WeaponSkins — [Staaar0/WeaponSkins](https://github.com/Staaar0/WeaponSkins) версии 1.2.2 и выше.** Обязательно: версия автора с `WeaponSkinsApi` (изменения для PMM).
 - **Ядро меню — [RRimmer/PanoramaMenuManagerCS2](https://github.com/RRimmer/PanoramaMenuManagerCS2) 1.3.01.**
-- CounterStrikeSharp **1.0.376+** (.NET 10).
+- CounterStrikeSharp **1.0.380+** (.NET 10).
 - Аддон панорамы: скопируйте `Content-addonmanager/panorama` и пересоберите его в Workshop Tools, **или** возьмите готовый аддон из мастерской Steam — для тех, кто хочет просто прописать его в MultiAddonManager: [steamcommunity.com/sharedfiles/filedetails/?id=3823363089](https://steamcommunity.com/sharedfiles/filedetails/?id=3823363089)
 
 ## Возможности
@@ -119,6 +126,13 @@ The plugin talks to WeaponSkins through reflection, so WeaponSkins is not needed
 | `tools` | `gen_layout.py` (разметка, стили, `Layout.g.cs`), `gen_art.py` (картинки, редкость), `gen_stickergeo.py` (геометрия наклеек из моделей), чтение моделей |
 | `configs` | Пример конфига с комментарием к каждому ключу |
 | `images` / `icon` | Баннер README и иконка плагина |
+
+## Новые предметы после обновления CS2
+
+Картинки предметов — файлы самого клиента CS2 (`s2r://panorama/images/econ/...`), аддон их не везёт. Список предметов и редкость берутся из [CSGO-API](https://github.com/ByMykel/CSGO-API) (автообновляемый форк: [Staaar0/CSGO-API](https://github.com/Staaar0/CSGO-API)). Когда в игре появляются новые наклейки, наборы музыки или скины:
+
+1. `python tools/gen_art.py https://raw.githubusercontent.com/Staaar0/CSGO-API/main/public/api/en PMM_WeaponSkins` (или путь к локальной копии CSGO-API);
+2. пересоберите плагин (`pmm_ws_items.json`) и Workshop-аддон (`pmm_ws_art.css`, `pmm_ws_stickers.css`).
 
 ## Установка из релиза
 

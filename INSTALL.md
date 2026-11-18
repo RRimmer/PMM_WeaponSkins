@@ -1,7 +1,7 @@
-# PMM_WeaponSkins 0.1.0 — установка
+# PMM_WeaponSkins 0.1.2 — установка
 
 ## Что нужно
-- CounterStrikeSharp 1.0.376 или новее (.NET 10)
+- CounterStrikeSharp 1.0.380 или новее (.NET 10)
 - WeaponSkins by Star с `WeaponSkinsApi` (версия автора с изменениями для PMM). Со старой версией меню не откроется, и WeaponSkins покажет своё обычное меню.
 - Клиентский аддон через MultiAddonManager (тот же, где лежит панорама PMM)
 
