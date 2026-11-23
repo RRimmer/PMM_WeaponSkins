@@ -95,7 +95,7 @@ The plugin talks to WeaponSkins through reflection, so WeaponSkins is not needed
 
 ![PMM WeaponSkins](images/pmm_weaponskins_0.1.1-1376x768.png)
 
-<h2><a href="https://genesis-cs.space/menuconstructor/index.html">>>>Более подробная информация на сайте<<<</a></h2>
+<h2 align="center"><a href="https://genesis-cs.space/menuconstructor/menumanager/plugins/">GENESIS-CS.SPACE</a></h2>
 
 Панорамное меню инвентаря для **WeaponSkins by Star** в CS2 от **Rimmer**, в стиле плагинов [PanoramaMenuManager](https://github.com/RRimmer/PanoramaMenuManagerCS2).
 
