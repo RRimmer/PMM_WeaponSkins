@@ -8,7 +8,7 @@
   <img src="images/PMMPluginsMini.jpg" alt="PMM MenuManager — many plugins in one place">
 </a>
 
-![PMM WeaponSkins](images/pmm_weaponskins_0.1.1-1376x768.png)
+![PMM WeaponSkins](images/PMMWeaponSkins.jpg)
 
 Panorama inventory menu for **WeaponSkins by Star** on CS2, by **Rimmer**, in the style of [PanoramaMenuManager](https://github.com/RRimmer/PanoramaMenuManagerCS2) plugins.
 
